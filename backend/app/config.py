@@ -20,7 +20,7 @@ class Settings(BaseSettings):
 
     # App
     ENV: str = "development"
-    CORS_ORIGINS: str = "http://localhost:5173"
+    CORS_ORIGINS: str = "http://localhost:5173,https://prolific-smile-production-2608.up.railway.app"
 
     @property
     def cors_origins_list(self):
