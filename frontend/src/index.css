@@ -1,40 +1,57 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #080c10;
-  --bg-card: #0d1318;
-  --bg-hover: #121a22;
-  --border: #1a2535;
-  --border-bright: #243446;
-  --green: #00e676;
-  --green-glow: rgba(0,230,118,0.15);
-  --red: #ff4757;
-  --amber: #ffab00;
-  --blue: #29b6f6;
-  --purple: #ab47bc;
-  --text-primary: #e8f0f7;
-  --text-secondary: #7a9ab8;
-  --text-dim: #3d5870;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Syne', sans-serif;
+  --bg: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-sidebar: #fbfbfd;
+  --bg-hover: #f0f0f5;
+  --border: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.13);
+
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --accent-soft: rgba(0,113,227,0.08);
+
+  --green: #1d8348;
+  --green-bg: rgba(29,131,72,0.08);
+  --red: #c0392b;
+  --red-bg: rgba(192,57,43,0.08);
+  --amber: #9a6700;
+  --amber-bg: rgba(154,103,0,0.08);
+  --blue: #0071e3;
+  --blue-bg: rgba(0,113,227,0.08);
+
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #a1a1a6;
+
+  --font: 'DM Sans', -apple-system, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-hover: 0 2px 8px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
 }
 
-html, body { height: 100%; background: var(--bg); color: var(--text-primary); font-family: var(--font-mono); font-size: 13px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-#root { min-height: 100vh; display: flex; flex-direction: column; }
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { min-height: 100vh; }
+
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+
 a { color: inherit; text-decoration: none; }
-button { font-family: var(--font-mono); cursor: pointer; border: none; background: none; color: inherit; }
+button { font-family: var(--font); cursor: pointer; border: none; background: none; color: inherit; }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
-  pointer-events: none;
-  z-index: 9999;
-}
-
-@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
