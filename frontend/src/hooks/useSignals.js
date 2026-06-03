@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 
-const API_BASE = import.meta.env.VITE_API_URL || ''
+const API_BASE = 'https://your-actual-backend-url.up.railway.app'
 
 const MOCK_SIGNALS = [
   {
