@@ -57,7 +57,7 @@ export function useSignals({ minScore = 40, clusterOnly = false } = {}) {
     try {
       const params = new URLSearchParams({ min_score: minScore })
       if (clusterOnly) params.set('cluster_only', 'true')
-      const res = await window.fetch(`${API_BASE}/api/signals?${params}`)
+      const res = await window.fetch(`${API_BASE}/signals?${params}`)
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       setData(await res.json())
       setUsingMock(false)
@@ -87,8 +87,8 @@ export function useTickerDetail(ticker) {
       setLoading(true)
       try {
         const [s, r] = await Promise.all([
-          window.fetch(`${API_BASE}/api/signals/${ticker}`),
-          window.fetch(`${API_BASE}/api/signals/${ticker}/raw`),
+          window.fetch(`${API_BASE}/signals/${ticker}`),
+          window.fetch(`${API_BASE}/signals/${ticker}/raw`),
         ])
         if (s.ok) setScore(await s.json())
         if (r.ok) setRawSignals(await r.json())
