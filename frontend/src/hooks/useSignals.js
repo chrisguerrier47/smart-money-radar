@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 
-const API_BASE = 'smart-money-radar-production-d651.up.railway.app'
+const API_BASE = 'https://smart-money-radar-production-d651.up.railway.app'
 
 const MOCK_SIGNALS = [
   {
